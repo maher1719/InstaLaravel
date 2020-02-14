@@ -11,7 +11,7 @@
         <div class="col-9 pt-5">
             <div>
                 <h1>
-                    tahaliasavage
+                    Mia khalifa
                 </h1>
             </div>
             <div class="d-flex">
@@ -19,6 +19,12 @@
                 <div class="pr-3"><strong>34</strong> posts</div>
                 <div class="pr-3"><strong>44</strong> following</div>
             </div>
+            <div class="pt-3 font-weight-bold">mia khalifa</div>
+            <div> is an American actress, producer, and former fashion model. She is the recipient of a Primetime Emmy
+                Award and a Golden Globe Award, as well as having received nominations for an Academy Award and two
+                Screen Actors Guild Awards
+            </div>
+            <div><a href="#">mia</a></div>
         </div>
     </div>
 </div>
