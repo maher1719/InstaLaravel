@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
-
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     //
     public function create()
     {
@@ -18,9 +21,13 @@ class PostsController extends Controller
             'caption' => 'required',
             'image' => ['required', 'image'],
         ]);
-        Post::create($data);
-        dd(request()->all());
-        //return view("posts.create");
+        $imagePath = request('image')->store('uploads', 'public');
+        auth()->user()->posts()->create([
+            'caption' => $data["caption"],
+            'image' => $imagePath,
+        ]);
+
+        return redirect('/profile/' . auth()->user()->id);
     }
 
 }
