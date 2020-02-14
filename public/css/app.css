@@ -65,14 +65,14 @@ section {
 }
 
 body {
-  margin: 0;
-  font-family: "Nunito", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 400;
-  line-height: 1.6;
-  color: #212529;
-  text-align: left;
-  background-color: #f8fafc;
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #212529;
+    text-align: left;
+    background-color: #FFF;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -511,12 +511,12 @@ mark,
 }
 
 .img-thumbnail {
-  padding: 0.25rem;
-  background-color: #f8fafc;
-  border: 1px solid #dee2e6;
-  border-radius: 0.25rem;
-  max-width: 100%;
-  height: auto;
+    padding: 0.25rem;
+    background-color: #FFF;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    max-width: 100%;
+    height: auto;
 }
 
 .figure {
@@ -4265,15 +4265,15 @@ input[type=button].btn-block {
 }
 
 .custom-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+    box-shadow: 0 0 0 1px #FFF, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+    box-shadow: 0 0 0 1px #FFF, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range:focus::-ms-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+    box-shadow: 0 0 0 1px #FFF, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range::-moz-focus-outer {
@@ -4478,9 +4478,9 @@ input[type=button].btn-block {
 
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-  color: #495057;
-  background-color: #f8fafc;
-  border-color: #dee2e6 #dee2e6 #f8fafc;
+    color: #495057;
+    background-color: #FFF;
+    border-color: #dee2e6 #dee2e6 #FFF;
 }
 
 .nav-tabs .dropdown-menu {
