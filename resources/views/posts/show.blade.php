@@ -10,7 +10,7 @@
                 <div>
                     <div class="d-flex align-items-center">
                         <div class="pr-3">
-                            <img src="/storage/{{$post->user->profile->image}}" alt=""
+                            <img src="/storage/{{$post->user->profile->profileImage()}}" alt=""
                                  class="w-100 rounded-circle" style="max-width: 40px">
                         </div>
                         <div>
@@ -20,6 +20,7 @@
                                         {{$post->user->username}}
                                     </span>
                                 </a>
+                                <a href="#" class="pl-3">Follow</a>
                             </div>
                         </div>
                     </div>
