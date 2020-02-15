@@ -24,3 +24,5 @@ Route::post('/p', 'PostsController@store');
 Route::get('/p/{post}', 'PostsController@show');
 
 Route::get('/profile/{user}', 'ProfileController@index')->name('profile.show');
+Route::get('/profile/{user}/edit', 'ProfileController@edit')->name('profile.edit');
+Route::patch('/profile/{user}', 'ProfileController@update')->name('profile.update');

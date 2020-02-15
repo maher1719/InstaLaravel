@@ -17,7 +17,7 @@
                         ajouter image
                     </a>
                 </div>
-                <a href="#">Edit profile</a>
+                <a href="/profile/{{$user->id}}/edit">Edit profile</a>
                 <div class="d-flex">
                     <div class="pr-3"><strong>{{$user->posts->count()}}</strong> posts</div>
                     <div class="pr-3"><strong>34</strong> followers</div>
