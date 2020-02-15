@@ -20,9 +20,10 @@
                                         {{$post->user->username}}
                                     </span>
                                 </a>
-                                @cannot('update',$post->user->profile)
-                                    <follow-button user-id="{{ $user->id }}" follows="{{$follows}}"></follow-button>
+                                {{-- @cannot('update',$post->user->profile)
+                                    <follow-button user-id="{{ $post->user->id }}" follows="{{$follows}}"></follow-button>
                                 @endcannot
+                                --}}
                             </div>
                         </div>
                     </div>

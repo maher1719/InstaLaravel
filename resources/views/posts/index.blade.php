@@ -4,31 +4,18 @@
     <div class="container">
         @foreach($posts as $post)
             <div class="row">
-                <div class="col-8">
-                    <img src="/storage/{{$post->image}}" class="w-100">
+                <div class="col-6 offset-3">
+                    <a href="/profile/{{$post->user->id}}">
+                        <img src="/storage/{{$post->image}}" class="w-100">
+                    </a>
+
                 </div>
-                <div class="col-4">
-                    <div>
-                        <div class="d-flex align-items-center">
-                            <div class="pr-3">
-                                <img src="/storage/{{$post->user->profile->profileImage()}}" alt=""
-                                     class="w-100 rounded-circle" style="max-width: 40px">
-                            </div>
-                            <div>
-                                <div class="font-weight-bold">
-                                    <a href="/profile/{{$post->user->id}}">
-                                    <span class="text-dark">
-                                        {{$post->user->username}}
-                                    </span>
-                                    </a>
-                                    @cannot('update',$post->user->profile)
-                                        <follow-button user-id="{{ $user->id }}" follows="{{$follows}}"></follow-button>
-                                    @endcannot
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <p>
+            </div>
+            <div class="row pt-4 pb-2">
+
+                <div class="col-6 offset-3">
+
+                    <p>
                         <span class="font-weight-bold">
                             <a href="/profile/{{$post->user->id}}">
                                 <span class="text-dark">
@@ -36,11 +23,15 @@
                                 </span>
                             </a>
                         </span>
-                            {{$post->caption}}
-                        </p>
-                    </div>
+                        {{$post->caption}}
+                    </p>
                 </div>
             </div>
         @endforeach
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                {{$posts->links()}}
+            </div>
+        </div>
     </div>
 @endsection
