@@ -9,10 +9,16 @@
                     alt="" class="rounded-circle w-100">
             </div>
             <div class="col-9 pt-5">
-                <div class="d-flex justify-content-between align-items-baseline">
-                    <h1>
-                        {{$user->username}}
-                    </h1>
+                <div class="d-flex justify-content-between align-items-baseline pb-3">
+                    <div class="d-flex align-items-center">
+                        <div class="h2 ">
+                            {{$user->username}}
+                        </div>
+                        @cannot('update',$user->profile)
+                            <follow-button user-id="{{ $user->id }}"></follow-button>
+                        @endcannot
+                    </div>
+
                     @can('update',$user->profile)
                         <a href="/p/create">
                             ajouter image
