@@ -55,7 +55,9 @@ class ProfilePolicy
     public function update(User $user, Profile $profile)
     {
         //
-        return $profile->user_id == $user->id;
+        if (!empty($profile->user_id) && !empty($user->id)) {
+            return $user->id === $profile->user_id;
+        }
     }
 
     /**
