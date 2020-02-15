@@ -1918,15 +1918,32 @@ module.exports = {
 //
             /* harmony default export */
             __webpack_exports__["default"] = ({
-                props: ['userId'],
+                props: ['userId', 'follows'],
                 mounted: function mounted() {
                     console.log('Component mounted.');
                 },
+                data: function data() {
+                    return {
+                        status: this.follows
+                    };
+                },
                 methods: {
                     followUser: function followUser() {
+                        var _this = this;
+
                         axios.post('/follow/' + this.userId).then(function (response) {
-                            alert(response.data);
+                            _this.status = !_this.status;
+                            console.log(response.data);
+                        })["catch"](function (errors) {
+                            if (errors.response.status == 401) {
+                                window.location = '/login';
+                            }
                         });
+                    }
+                },
+                computed: {
+                    buttonText: function buttonText() {
+                        return this.status ? 'Unfollow' : 'Follow';
                     }
                 }
             });
@@ -1934,18 +1951,19 @@ module.exports = {
             /***/
         }),
 
-/***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+        /***/
+        "./node_modules/bootstrap/dist/js/bootstrap.js":
+        /*!*****************************************************!*\
+          !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
+          \*****************************************************/
+        /*! no static exports found */
+        /***/ (function (module, exports, __webpack_require__) {
 
-/*!
-  * Bootstrap v4.4.1 (https://getbootstrap.com/)
-  * Copyright 2011-2019 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-  */
+            /*!
+              * Bootstrap v4.4.1 (https://getbootstrap.com/)
+              * Copyright 2011-2019 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+              * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+              */
 (function (global, factory) {
    true ? factory(exports, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")) :
   undefined;
@@ -37314,11 +37332,11 @@ exports._unrefActive = exports.active = function(item) {
                 var _h = _vm.$createElement
                 var _c = _vm._self._c || _h
                 return _c("div", [
-                    _c(
-                        "button",
-                        {staticClass: "btn btn-primary ml-4", on: {click: _vm.followUser}},
-                        [_vm._v("follow")]
-                    )
+                    _c("button", {
+                        staticClass: "btn btn-primary ml-4",
+                        domProps: {textContent: _vm._s(_vm.buttonText)},
+                        on: {click: _vm.followUser}
+                    })
                 ])
             }
             var staticRenderFns = []
@@ -37351,16 +37369,16 @@ exports._unrefActive = exports.active = function(item) {
             function normalizeComponent(
                 scriptExports,
                 render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode /* vue-cli only */
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
+                staticRenderFns,
+                functionalTemplate,
+                injectStyles,
+                scopeId,
+                moduleIdentifier, /* server only */
+                shadowMode /* vue-cli only */
+            ) {
+                // Vue.extend constructor export interop
+                var options = typeof scriptExports === 'function'
+                    ? scriptExports.options
     : scriptExports
 
   // render functions
@@ -49528,15 +49546,16 @@ module.exports = function(module) {
             /***/
         }),
 
-/***/ "./resources/js/bootstrap.js":
-/*!***********************************!*\
-  !*** ./resources/js/bootstrap.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+        /***/
+        "./resources/js/bootstrap.js":
+        /*!***********************************!*\
+          !*** ./resources/js/bootstrap.js ***!
+          \***********************************/
+        /*! no static exports found */
+        /***/ (function (module, exports, __webpack_require__) {
 
-window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/**
+            window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+            /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
  * code may be modified to fit the specific needs of your application.
@@ -49678,12 +49697,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
           !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
           \*************************************************************/
         /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+        /***/ (function (module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laravel\sharegram\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laravel\sharegram\resources\sass\app.scss */"./resources/sass/app.scss");
+            __webpack_require__(/*! C:\laravel\sharegram\resources\js\app.js */"./resources/js/app.js");
+            module.exports = __webpack_require__(/*! C:\laravel\sharegram\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
-/***/ })
+            /***/
+        })
 
-/******/ });
+        /******/
+    });
