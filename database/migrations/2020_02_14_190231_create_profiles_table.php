@@ -20,7 +20,9 @@ class CreateProfilesTable extends Migration
             $table->text('description')->nullable();
             $table->string("url")->nullable();
             $table->timestamps();
+
             $table->index('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

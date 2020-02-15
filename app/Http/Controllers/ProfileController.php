@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Auth\Access\AuthorizationException;
 
 class ProfileController extends Controller
 {
@@ -17,6 +18,14 @@ class ProfileController extends Controller
 
     public function edit(User $user)
     {
+
+
+        //dd($user->profile);
+        try {
+            $this->authorize('update', $user->profile);
+        } catch (AuthorizationException $e) {
+        }
+
         return view('profiles.edit', compact('user'));
     }
 

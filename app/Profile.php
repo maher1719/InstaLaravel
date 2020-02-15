@@ -8,7 +8,7 @@ class Profile extends Model
 {
     //
     protected $guarded = [];
-    public function user()
+    public function User()
     {
         return $this->belongsTo(User::class);
     }

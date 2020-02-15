@@ -17,15 +17,18 @@
                         ajouter image
                     </a>
                 </div>
-                <a href="/profile/{{$user->id}}/edit">Edit profile</a>
+
+                @can('update')
+                    <a href="/profile/{{$user->id}}/edit">Edit profile</a>
+                @endcan
                 <div class="d-flex">
                     <div class="pr-3"><strong>{{$user->posts->count()}}</strong> posts</div>
                     <div class="pr-3"><strong>34</strong> followers</div>
                     <div class="pr-3"><strong>44</strong> following</div>
                 </div>
-                <div class="pt-3 font-weight-bold">{{$user->profile->title}}</div>
+                <div class="pt-3 font-weight-bold">{{$user->profile->title ?? ''}}</div>
                 <div>
-                    {{$user->profile->description}}
+                    {{$user->profile->description ?? ''}}
                 </div>
                 <div><a href="#">{{$user->profile->url ?? 'N/A' }}</a></div>
             </div>
